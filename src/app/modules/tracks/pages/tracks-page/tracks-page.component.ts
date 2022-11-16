@@ -20,7 +20,12 @@ export class TracksPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.trackService.getAllTracks$().subscribe(
       (response)=>{
-        console.log('-----> 🔴🔴🔴', response)
+        this.trackTrending = response
+      })
+
+    this.trackService.getAllRandom$().subscribe(
+      (response)=>{
+        this.trackRandom = response
       })
   }
 
