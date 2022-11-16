@@ -72,7 +72,7 @@ export class SideBarComponent implements OnInit {
   goTo($event:any): void {
     this.router.navigate(['/','favorites'],{
       queryParams: {
-        mee1: 'chespirito',
+        key1: 'value1',
         key2: 'value2',
         key3: 'value3'
       }
