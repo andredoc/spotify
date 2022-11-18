@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { map, mergeMap, tap } from 'rxjs/operators'
 import { environment } from 'src/environments/environment';
 
@@ -41,7 +42,12 @@ export class TrackService {
         // map((reverseData) => {
         //   return reverseData.filter((track: TrackModel)=> track._id !== 1)
         // })
-        tap(data => console.log('▶▶▶',data))
+        tap(data => console.log('▶▶▶',data)),
+        catchError((err) => {
+          const { status, statusText } = err;
+          console.log('this is the error --> check it out! :', [status, statusText]);
+          return of([]);
+        })
       )
   }
 }
