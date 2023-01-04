@@ -28,7 +28,7 @@ export class OrderListPipe implements PipeTransform {
         return (sort === 'asc') ? tmpList : tmpList.reverse();
       }
     } catch (e) {
-      console.log('Algo pasó!');
+      console.log('Something happens!');
       return value;
     }
   }

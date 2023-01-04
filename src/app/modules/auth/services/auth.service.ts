@@ -12,7 +12,7 @@ export class AuthService {
 
   private readonly URL= environment.api;
 
-  constructor(private http: HttpClient, private cookie: CookieService) {}
+  constructor(private http: HttpClient) {}
 
   sendCredentials(email:string, password: string): Observable<any> {
 
@@ -22,11 +22,11 @@ export class AuthService {
     }
 
     return this.http.post(`${this.URL}/auth/login`, body)
-    .pipe(
-      tap( (responseOK: any) => {
-        const { tokenSession, data} = responseOK;
-        this.cookie.set('token_service', tokenSession, 4 ,'/')
-      })
-    )
+    // .pipe(
+    //   tap( (responseOK: any) => {
+    //     const { tokenSession, data} = responseOK;
+    //     this.cookie.set('token_service', tokenSession, 4 ,'/')
+    //   })
+    // )
   }
 }
