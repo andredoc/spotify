@@ -28,13 +28,18 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Search',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'search']
       },
       {
-        name: 'Your Library',
+        name: 'Favorites Songs',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
+        query: { song: 'artist' }
+      },
+      {
+        name: 'Tracks',
+        icon: 'uil uil-chart',
+        router: ['/', 'tracks'],
       }
     ]
 
@@ -44,7 +49,7 @@ export class SideBarComponent implements OnInit {
         icon: 'uil-plus-square'
       },
       {
-        name: 'Favorites Songs',
+        name: "Song's List",
         icon: 'uil-heart-medical'
       }
     ]
@@ -77,6 +82,6 @@ export class SideBarComponent implements OnInit {
         key3: 'value3'
       }
     });
-    console.log($event)
+    console.log($event.type)
   }
 }
